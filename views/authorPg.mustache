@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{auth.info.name}}</title>
+  </head>
+  <body>
+    <main>
+      <section class="authInfo">
+        <img src={{auth.info.avatar}} alt="">
+        <a href="/author/{{username}}"><p>{{auth.info.name}}</p></a>
+        <p>{{auth.info.city}}</p>
+        <p>{{auth.info.website}}</p>
+      </section>
+      <section>
+        {{#snippets}}
+          {{snippets.content}}
+        {{/snippets}}
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <main>
+      {{#authors}}
+      <img src={{info.avatar}} alt="">
+      <a href="/author/{{username}}"><p>{{info.name}}</p></a>
+      <p>{{info.city}}</p>
+      <p>{{info.website}}</p>
+      {{/authors}}
+    </main>
+  </body>
+</html>

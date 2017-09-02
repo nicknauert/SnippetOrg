@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Account</title>
+    {{>_header}}
+  </head>
+  <body>
+    <main>
+      <h3>Create Account</h3>
+      <form class="signupForm" action="/signup" method="POST">
+        <input type="text" name="info.name" placeholder="Full Name">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <hr>
+        <input type="text" name="info.avatar" placeholder="URL For Avatar">
+        <input type="text" name="info.website" placeholder="Website">
+        <input type="text" name="info.city" placeholder="City">
+        <input type="text" name="info.country" placeholder="Country">
+        <textarea name="about" rows="20" cols="80" placeholder="Brief Description Of Yourself!"></textarea>
+        <button type="submit" name="signupBtn">Create User</button>
+      </form>
+    </main>
+  </body>
+</html>
