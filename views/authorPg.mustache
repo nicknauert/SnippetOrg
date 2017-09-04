@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>{{auth.info.name}}</title>
+    <title>{{author.info.name}}</title>
+    {{>_header}}
   </head>
   <body>
+    {{>_nav}}
     <main>
-      <section class="authInfo">
-        <img src={{auth.info.avatar}} alt="">
-        <a href="/author/{{username}}"><p>{{auth.info.name}}</p></a>
-        <p>{{auth.info.city}}</p>
-        <p>{{auth.info.website}}</p>
+      <section class="authorInfo">
+        <img src={{author.info.avatar}} alt="">
+        <div class="infoText">
+          <h2>{{author.info.name}}</h2>
+          <p class="authorCity">{{author.info.city}}</p>
+          <p class="authorWeb">{{author.info.website}}</p>
+        </div>
       </section>
-      <section>
-        {{#snippets}}
-          {{snippets.content}}
-        {{/snippets}}
+      <section class="authorSnippets">
+        <h3>Authors Snippets: </h3>
+        {{#author.snippets}}
+          <a href="/snippet/{{_id}}"><h4>{{title}}</h4></a>
+          <p>{{description}}</p>
+        {{/author.snippets}}
       </section>
     </main>
   </body>

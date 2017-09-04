@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Snip Feed</title>
+    {{>_header}}
+  </head>
+  <body>
+    {{>_nav}}
+    <header class="uni">
+      <h2>Authors</h2>
+      <hr>
+    </header>
+    <main class="feedMain">
+      <section class="feedCont">
+        {{#authors}}
+        <div class="authorPost">
+          <a href="/author/{{username}}"><h3>{{info.name}}</h3></a>
+          <p>Username: {{username}}</p>
+        </div>
+        {{/authors}}
+      </section>
+    </main>
+  </body>
+</html>

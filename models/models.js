@@ -27,14 +27,11 @@ const SnippetSchema = new mongoose.Schema({
   description: String,
   content: String,
   created: Date,
-  updated: Date,
   language: String,
   stars: Number,
-  author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  tags: [{type: String}],
+  author: {type: mongoose.Schema.Types.ObjectId, ref: 'Author'},
+  tags: [{type: String}]
 })
-
-
 
 
 AuthorSchema.pre('save', function(next) {
@@ -55,9 +52,6 @@ AuthorSchema.methods.comparePassword = function(pwd, dbPass, done) {
     done(err, isMatch)
   })
 }
-
-
-
 
 
 const Snippet = mongoose.model('Snippet', SnippetSchema);

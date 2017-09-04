@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Snip Feed</title>
+    {{>_header}}
+  </head>
+  <body>
+    {{>_nav}}
+    <header class="uni">
+      <h2>Snippet Feed</h2>
+      <hr>
+    </header>
+    <main class="createMain">
+      <section class="writeCont">
+
+        <form class="snippetForm" action="/create" method="POST">
+          <h2>Create Snippet</h2>
+          <button type="submit" name="snipSubmit">Create Snip</button>
+          <input autocomplete="off" id="snipTitle" type="text" name="title" placeholder="Title of Snippet">
+          <input autocomplete="off" id="snipDesc" type="text" name="description" placeholder="Brief Description">
+          <textarea id="snipText" name="content" rows="12" cols="70" placeholder="Your Snippet"></textarea>
+          <input autocomplete="off" id="snipLang" type="text" name="language" placeholder="Programming Lanugage">
+          <input autocomplete="off" id="snipTags" type="text" name="tags" placeholder="Tags">
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

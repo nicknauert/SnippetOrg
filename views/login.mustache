@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <title>Login To Snippets</title>
-    <link rel="stylesheet" href="../styles.css">
+    {{>_header}}
   </head>
-  <body>
-    <nav class="loginNav">
-      <h3 class="welcomeH3">Welcome To RoboDex</h3>
-    </nav>
+  <body class="loginBody">
+
     <main class="loginMain">
       <h3 class="newUserH3">Log In</h3>
       <form class="loginForm" action="/login" method="POST">
@@ -16,7 +13,7 @@
         <input type="password" name="password" placeholder="Password">
         <button class="loginSubmit" type="submit" name="loginSubmit">Login</button>
       </form>
-      <a class="createUserLink" href="/newuser">Create Account</a>
+      <a class="createUserLink" href="/signup">Create Account</a>
     </main>
   </body>
 </html>

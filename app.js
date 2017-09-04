@@ -6,7 +6,10 @@ const {
   getAllAuthors,
   getAuthorByUsername,
   getSnipsByUsername,
-  getAuthorAndSnips
+  getAuthorAndSnips,
+  getAllSnippets,
+  createSnippet,
+  searchSnippets
 } = require('./dal');
 const chalk = require('chalk');
 const bodyParser = require('body-parser');
@@ -28,36 +31,103 @@ app.set('views', __dirname + '/views')
 
 ////////////// MIDDLEWARE //////////////
 
-app.use(express.static('public'));
+app.use(express.static('./frontend/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(session({
-  secret: 'keyboard cat',
+  secret: 'mudlark',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: true
 }))
 
 
 ////////////////// ROUTES ///////////////
 /*
 login -get -post
-feed -get
+feed -get -post(search)
 snippet -get
-user -get
-user/starred -get
-user(self) -get -post
+author -get
+author/starred -get
+author(self) -get -post
 create snippet -get -post
 */
+
+
+//////////// Content Routes /////////////////
+
+app.get('/feed', ensureAuthentication, (req, res) => {
+  getAllSnippets().then((snippets) => {
+    res.render('feed', {snips: snippets.reverse()})
+  })
+})
+
+app.post('/feed', ensureAuthentication, (req, res) => {
+  searchSnippets(req.body.searchInput).then((snippets) => {
+    console.log(snippets)
+    res.render('feed', {snips: snippets.reverse()})
+  })
+})
+
+app.get('/author/:username', ensureAuthentication, ({params}, res) => {
+  getAuthorAndSnips(params.username).then((foundAuthor) => {
+    console.log(foundAuthor);
+    res.render('authorPg', {author: foundAuthor});
+  })
+}) //make this include a self page
+
+app.get('/snippet/:id', ensureAuthentication, ({params}, res) => {
+  getSingleSnippet(params.id).then((snippet) => {
+    res.render('/snippet', { snippet })
+  })
+})
+
+app.get('/authors', ensureAuthentication, (req, res) => {
+  getAllAuthors().then((authors) => {
+    res.render('authors', {authors})
+  })
+})
+
+app.get('/create', ensureAuthentication, (req, res) => {
+    res.render('create')
+})
+app.post('/create', ensureAuthentication, (req, res) => {
+    createSnippet(req.body, req.session.jwtToken.token);
+    res.redirect('/feed')
+})
+
+app.get('/logout', (req, res) => {
+  req.session.jwtToken = null
+  res.redirect('/login')
+})
+
+
+
+
+
+
+
+
+
+
+////////// LOGIN ROUTES ////////////
+
+app.get('/', (req, res) => {
+  if(req.session.jwtToken){
+    res.redirect('/feed')
+  }
+  res.redirect('/login')
+
+})
 
 app.get('/signup', (req, res) => {
   res.render('signup');
 })
 
 app.post('/signup', (req, res) => {
-  createAuthor(req.body).then((newUAuthor) => {
-    res.redirect('/login');
+  createAuthor(req.body).then((newAuthor) => {
+    res.redirect('/login')
   })
 })
 
@@ -67,7 +137,6 @@ app.get('/login', (req, res) => {
 
 app.post('/login', (req, res) => {
   Author.findOne({ username: req.body.username }, 'username password', function (err, user, next) {
-    console.log(user);
     if (err) return next(err)
     if (!user) {
       return res.status(401).send({ message: 'Wrong email and/or password' })
@@ -78,23 +147,9 @@ app.post('/login', (req, res) => {
         return res.status(401).send({ message: 'Wrong email and/or password' })
       }
       let token = { token: createToken(user)};
-      window.localStorage.setItem(token);
+      req.session.jwtToken = token;
+      res.redirect('/');
     })
-  })
-})
-
-
-
-app.get('/feed', (req, res) => {
-  getAllAuthors().then((authors) => {
-    res.render('feed', {authors})
-  })
-})
-
-app.get('/author/:username', ({params}, res) => {
-
-  getAuthorAndSnips(params.username).then((foundAuthor) => {
-    res.render('authorPg', {author: foundAuthor})
   })
 })
 

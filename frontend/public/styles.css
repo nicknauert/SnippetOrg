@@ -1,0 +1,515 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  height: 100%;
+  background-color: rgb(34, 34, 54);
+  padding: 70px 70px 0 280px;
+}
+
+
+/*
+font-family: 'Lato', sans-serif;
+font-family: 'Source Code Pro', monospace;
+*/
+
+
+/*========  Nav Bar ===============*/
+
+.navBar {
+  width: 140px;
+  height: 400px;
+  padding: 60px 10px 0 10px;
+  /*background-image: linear-gradient(0deg, rgb(24, 24, 24), rgb(40, 40, 40));*/
+  position: fixed;
+  left: 50px;
+  top: 0;
+}
+
+.logo {
+  width: 40px;
+  margin-bottom: 20px;
+}
+
+.navHr {
+  border-color: rgb(159, 172, 215);
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.navHr2 {
+  border-color: rgb(159, 172, 215);
+  width: 100%;
+  margin: 15px 0;
+}
+
+.navUl {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.navUl li {
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+.navUl>li a {
+  text-decoration: none;
+  color: rgb(224, 228, 240);
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: .2px;
+}
+
+.navUl>li>a:hover {
+  color: rgb(254, 254, 254);
+}
+
+#navLogout {
+  margin: 10px 0;
+}
+
+.navSearch input {
+  height: 25px;
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid rgb(159, 172, 215);
+  color: rgb(224, 228, 240);
+  border-radius: 3px;
+  padding: 0 0 0 5px;
+  margin-bottom: 10px;
+}
+
+.navSearch>input:focus {
+  outline: none;
+}
+
+.uni {
+  width: 100%;
+  padding-top: 70px;
+  margin-bottom: 40px;
+  position: fixed;
+  top: 0px;
+  height: 120px;
+  background-color: rgb(34, 34, 54);
+}
+
+.uni>h2 {
+  height: 40px;
+  margin-bottom: 10px;
+  color: rgb(204, 223, 237);
+  font-size: 35px;
+  font-weight: 300;
+}
+
+.uni hr {
+  width: 65%;
+  border-color: rgb(159, 172, 215);
+}
+
+
+/*============= LOGIN PAGE ==============*/
+
+.loginBody {
+  padding: 10% 0;
+}
+
+.loginMain {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.newUserH3 {
+  color: rgb(204, 223, 237);
+  margin-bottom: 15px;
+  font-weight: 300;
+  font-size: 25px;
+}
+
+.loginForm {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginForm input {
+  margin-bottom: 10px;
+  padding: 7px 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(159, 172, 215);
+  background-color: transparent;
+  color: rgb(204, 223, 237);
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.loginSubmit {
+  margin-bottom: 10px;
+  width: 70px;
+  padding: 7px 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(159, 172, 215);
+  background-color: transparent;
+  color: rgb(204, 223, 237);
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.loginSubmit:hover {
+  background-color: rgb(39, 39, 61);
+}
+
+.createUserLink {
+  color: rgb(204, 223, 237);
+  font-size: 13px;
+  font-weight: 300;
+}
+
+
+/*========  FEED STYLE  ==============*/
+
+.feedMain {
+  margin: 85px auto;
+  width: 100%;
+  padding: 0px 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  color: rgb(223, 229, 238);
+  /*background-color: rgb(32, 32, 32);*/
+}
+
+.feedPost {
+  width: 500px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-bottom: 1px solid rgb(65, 71, 92);
+}
+
+.postInfo {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.postInfo h3 {
+  font-size: 27px;
+  margin-bottom: 2px;
+}
+
+.postInfo p {
+  font-size: 12px;
+  color: rgb(184, 194, 209);
+}
+
+.snipBg {
+  background-color: rgb(61, 67, 79);
+  border-radius: 4px;
+  padding: 25px 25px 35px 15px;
+  margin-bottom: 10px;
+}
+
+.snipBg P {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 12px;
+  letter-spacing: .2px;
+  line-height: 16px;
+}
+
+.author {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgb(184, 194, 209);
+  margin-bottom: 4px;
+}
+
+.author a {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgb(184, 194, 209);
+}
+
+.date {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgb(184, 194, 209);
+  margin-bottom: 25px;
+}
+
+
+/*============== Author List ===============*/
+
+.authorPost {
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgb(65, 71, 92);
+}
+
+.authorPost>a {
+  font-size: 19px;
+  color: rgb(184, 194, 209);
+  text-decoration: none;
+}
+
+.authorPost>a>h3 {
+  font-weight: 300;
+  margin-bottom: 2px;
+}
+
+.authorPost p {
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+
+/*========== AUTHOR PAGE =================*/
+
+.authorInfo {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 500px;
+}
+
+.authorInfo img {
+  height: 200px;
+}
+
+.infoText {
+  margin-left: 20px;
+  color: rgb(172, 184, 201);
+  font-weight: 300;
+}
+
+.infoText h2 {
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+.infoText a {
+  text-decoration: none;
+  color: rgb(209, 218, 232);
+}
+
+
+/*============= CREATE SNIPPET ==============*/
+
+.createMain {
+  margin: 0 auto;
+  width: 100%;
+  padding: 60px 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.snippetForm>h2 {
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: -30px;
+}
+
+.snippetForm {
+  color: rgb(223, 229, 238);
+  margin: 20px 0;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.snippetForm input {
+  transition: .2s;
+  font-weight: 300;
+  height: 25px;
+  width: 100px;
+  margin-bottom: 15px;
+  border: none;
+  background-color: transparent;
+  color: rgb(223, 229, 238);
+  border-bottom: 1px solid rgb(107, 115, 143);
+}
+
+.snippetForm>input::placeholder {
+  color: rgb(123, 135, 154);
+}
+
+#snipTitle {
+  font-size: 22px;
+  padding: 8px 3px;
+  width: 300px;
+}
+
+#snipTitle:focus {
+  outline: none;
+}
+
+#snipDesc {
+  font-size: 15px;
+  padding: 4px;
+  margin-bottom: 25px;
+  transition: .2s;
+  outline: none;
+  width: 300px;
+}
+
+#snipDesc:focus {
+  outline: none;
+}
+
+#snipText {
+  padding: 10px 10px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid rgb(107, 115, 143);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: .3px;
+}
+
+#snipText:focus {
+  outline: none;
+}
+
+#snipLang {
+  font-size: 13px;
+  padding: 4px;
+  outline: none;
+  width: 300px;
+}
+
+#snipLang:focus {
+  outline: none;
+}
+
+#snipTags {
+  font-size: 13px;
+  padding: 4px;
+  outline: none;
+  width: 300px;
+}
+
+#snipTags:focus {
+  outline: none;
+}
+
+.snippetForm button {
+  margin: 0 auto;
+  position: relative;
+  top: 410px;
+  left: 200px;
+  border: 1px solid rgb(107, 115, 143);
+  border-radius: 4px;
+  width: 120px;
+  height: 50px;
+  font-size: 15px;
+  font-weight: 300;
+  background-color: transparent;
+  color: rgb(142, 151, 182);
+}
+
+.snippetForm button:hover {
+  background-color: rgb(48, 48, 73);
+}
+
+
+/*=============== SignUp Styles ============*/
+
+.signupForm {
+  color: rgb(223, 229, 238);
+  margin: 0px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.leftCol {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.rightCol {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.signupForm h3 {
+  margin-bottom: 15px;
+  font-size: 26px;
+  font-weight: 300;
+}
+
+.signupForm>hr {
+  width: 175px;
+  border: 1px solid rgb(83, 103, 135);
+  margin: 10px 0 15px 0;
+}
+
+.signupForm input {
+  transition: .2s;
+  font-weight: 300;
+  padding: 2px 4px;
+  height: 25px;
+  width: 150px;
+  margin-bottom: 15px;
+  border: none;
+  background-color: transparent;
+  color: rgb(223, 229, 238);
+  border-bottom: 1px solid rgb(107, 115, 143);
+}
+
+.signupForm input::placeholder {
+  color: rgb(123, 135, 154);
+}
+
+.signupForm textarea {
+  padding: 10px 10px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border-radius: 4px;
+  color: rgb(123, 135, 154);
+  border: 1px solid rgb(107, 115, 143);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: .3px;
+}
+
+.signupForm textarea:focus {
+  outline: none;
+}
+
+.signupForm textarea::placeholder {
+  color: rgb(68, 80, 98);
+}
+
+.signupForm button {
+  border: 1px solid rgb(107, 115, 143);
+  border-radius: 4px;
+  width: 120px;
+  height: 50px;
+  font-size: 15px;
+  font-weight: 300;
+  background-color: transparent;
+  color: rgb(142, 151, 182);
+}
+
+.signupForm button:hover {
+  background-color: rgb(48, 48, 73);
+}
