@@ -357,7 +357,6 @@ font-family: 'Source Code Pro', monospace;
   font-size: 15px;
   padding: 4px;
   margin-bottom: 25px;
-  transition: .2s;
   outline: none;
   width: 300px;
 }
@@ -368,6 +367,7 @@ font-family: 'Source Code Pro', monospace;
 
 #snipText {
   padding: 10px 10px;
+  color: rgb(223, 229, 238);
   margin-bottom: 20px;
   background-color: transparent;
   border-radius: 4px;
@@ -512,4 +512,8 @@ font-family: 'Source Code Pro', monospace;
 
 .signupForm button:hover {
   background-color: rgb(48, 48, 73);
+}
+
+.authorSnippets {
+  color: white;
 }

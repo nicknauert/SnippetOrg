@@ -21,6 +21,9 @@
           <a href="/snippet/{{_id}}"><h4>{{title}}</h4></a>
           <p>{{description}}</p>
         {{/author.snippets}}
+        {{^author.snippets}}
+          <p>No snippets yet!</p>
+        {{/author.snippets}}
       </section>
     </main>
   </body>

@@ -77,11 +77,11 @@ app.get('/author/:username', ensureAuthentication, ({params}, res) => {
   })
 }) //make this include a self page
 
-app.get('/snippet/:id', ensureAuthentication, ({params}, res) => {
-  getSingleSnippet(params.id).then((snippet) => {
-    res.render('/snippet', { snippet })
-  })
-})
+// app.get('/snippet/:id', ensureAuthentication, ({params}, res) => {
+//   getSingleSnippet(params.id).then((snippet) => {
+//     res.render('/snippet', { snippet })
+//   })
+// })
 
 app.get('/authors', ensureAuthentication, (req, res) => {
   getAllAuthors().then((authors) => {

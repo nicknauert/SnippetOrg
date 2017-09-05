@@ -36,8 +36,8 @@ function searchSnippets(search){
 }
 
 function getAuthorAndSnips(username){
-  return Author.findOne({ username: username})
-    .populate('snippets');
+  return Author.findOne({ username: username })
+    .populate('snippets')
 }
 
 function createAuthor(newUser){
