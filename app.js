@@ -59,29 +59,23 @@ create snippet -get -post
 
 app.get('/feed', ensureAuthentication, (req, res) => {
   getAllSnippets().then((snippets) => {
+    let decoded = jwt.decode(req.session.jwtToken.token)
+    console.log(decoded);
     res.render('feed', {snips: snippets.reverse()})
   })
 })
 
 app.post('/feed', ensureAuthentication, (req, res) => {
   searchSnippets(req.body.searchInput).then((snippets) => {
-    console.log(snippets)
     res.render('feed', {snips: snippets.reverse()})
   })
 })
 
 app.get('/author/:username', ensureAuthentication, ({params}, res) => {
   getAuthorAndSnips(params.username).then((foundAuthor) => {
-    console.log(foundAuthor);
     res.render('authorPg', {author: foundAuthor});
   })
 }) //make this include a self page
-
-// app.get('/snippet/:id', ensureAuthentication, ({params}, res) => {
-//   getSingleSnippet(params.id).then((snippet) => {
-//     res.render('/snippet', { snippet })
-//   })
-// })
 
 app.get('/authors', ensureAuthentication, (req, res) => {
   getAllAuthors().then((authors) => {
@@ -94,6 +88,7 @@ app.get('/create', ensureAuthentication, (req, res) => {
 })
 app.post('/create', ensureAuthentication, (req, res) => {
     createSnippet(req.body, req.session.jwtToken.token);
+
     res.redirect('/feed')
 })
 
@@ -101,13 +96,6 @@ app.get('/logout', (req, res) => {
   req.session.jwtToken = null
   res.redirect('/login')
 })
-
-
-
-
-
-
-
 
 
 
@@ -154,6 +142,7 @@ app.post('/login', (req, res) => {
 })
 
 
-app.listen(3000, () => {
-  console.log(chalk.green('Snippets running on 3000. Better catch em.'))
+app.set('port', process.env.PORT || 3000)
+app.listen(app.get('port'), function(req, res){
+  console.log("App started on 3000.")
 })

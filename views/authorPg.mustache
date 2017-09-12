@@ -18,8 +18,16 @@
       <section class="authorSnippets">
         <h3>Authors Snippets: </h3>
         {{#author.snippets}}
-          <a href="/snippet/{{_id}}"><h4>{{title}}</h4></a>
-          <p>{{description}}</p>
+        <div class="feedPost">
+          <div class="postInfo">
+            <h4>{{title}}</h4>
+            <p>{{description}}</p>
+          </div>
+          <div class="snipBg">
+            <p>{{content}}</p>
+          </div>
+            <p class="date">{{created}}</p>
+        </div>
         {{/author.snippets}}
         {{^author.snippets}}
           <p>No snippets yet!</p>

@@ -56,7 +56,6 @@ function starSnippet(snipId, userId){
 function createSnippet(newSnip, token) {
   let decoded = jwt.decode(token);
   let splitTags = newSnip.tags.split(' ');
-
   let fullSnip = {
     title: newSnip.title,
     description: newSnip.description,
@@ -70,6 +69,13 @@ function createSnippet(newSnip, token) {
   const snippet = new Snippet(fullSnip);
   snippet.save( function(err) {
     console.log(err);
+  })
+
+  getAuthorByUsername(decoded.user).then((author)=>{
+    author.snippets.push(snippet._id);
+    author.save(function(err){
+      console.log(err);
+    });
   })
 }
 

@@ -301,6 +301,12 @@ font-family: 'Source Code Pro', monospace;
   color: rgb(209, 218, 232);
 }
 
+.authorSnippets>h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
 
 /*============= CREATE SNIPPET ==============*/
 
