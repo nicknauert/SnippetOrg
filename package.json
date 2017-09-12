@@ -22,7 +22,7 @@
     "mocha": "^3.5.0"
   },
   "scripts": {
-    "start": "app.js",
+    "start": "node app.js",
     "test": "mocha"
   },
   "keywords": [],
